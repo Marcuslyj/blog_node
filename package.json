@@ -1,0 +1,28 @@
+{
+  "name": "blog_node",
+  "version": "1.0.0",
+  "description": "nodejs，开发个人blog",
+  "main": "app.js",
+  "bin": {
+    "blog_node": "www.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js",
+    "prd": "cross-env NODE_ENV=production nodemon ./bin/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcuslyj/blog_node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcuslyj/blog_node/issues"
+  },
+  "homepage": "https://github.com/Marcuslyj/blog_node#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.0",
+    "nodemon": "^2.0.2"
+  }
+}
