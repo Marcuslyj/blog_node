@@ -5,7 +5,7 @@ const { MYSQL_CONF } = require('../conf/db')
 const conn = mysql.createConnection(MYSQL_CONF)
 
 // 开始连接
-con.connect()
+conn.connect()
 
 // 统一执行sql的函数
 function exec(sql) {
@@ -15,7 +15,7 @@ function exec(sql) {
                 reject(err)
                 return
             }
-            console.log(result)
+            resolve(result)
         })
     })
     return promise
