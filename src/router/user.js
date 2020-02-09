@@ -6,13 +6,16 @@ const handleUserRouter = (req, res) => {
     const path = req.path
 
     // 登录
-    if (method === 'GET' && path === '/api/user/login') {
+    if (method === 'POST' && path === '/api/user/login') {
+        console.log('((((((((((((((((((((((((((((((')
+        console.log(req.body)
+
         const { username, password } = req.body
         const result = login(username, password)
         return result.then(data => {
             if (data.username) {
                 // 操作cookie
-                res.setHeader('Set-Cookie', `username=${data.username};path=/`)
+                res.setHeader('Set-Cookie', `username=${data.username};path=/;httpOnly`)
                 return new SuccessModel()
             }
             return new ErrorModel('登录失败')

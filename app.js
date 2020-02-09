@@ -49,8 +49,8 @@ const serverHandle = (req, res) => {
             return
         }
         const arr = item.split('=')
-        const key = arr[0]
-        const value = arr[1]
+        const key = arr[0].trim()
+        const value = arr[1].trim()
         req.cookie[key] = value
     })
     console.log('cookie', req.cookie)
