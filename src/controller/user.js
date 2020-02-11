@@ -1,8 +1,12 @@
 const { exec, escape } = require('../db/mysql')
+const { password } = require('../utils/cryp')
 
 const login = (username, password) => {
     // 防sql注入
     username = escape(username)
+    
+    // 生成加密密码
+    password = genPassword(password)
     password = escape(password)
 
     const sql = `
