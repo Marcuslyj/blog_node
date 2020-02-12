@@ -14,9 +14,9 @@ var userRouter = require('./routes/user');
 var app = express();
 
 // 模板引擎设置
-// // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 // 写日志
 app.use(logger('dev'));
