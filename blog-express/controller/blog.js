@@ -23,7 +23,7 @@ const getDetail = (id) => {
 }
 
 const newBlog = (blogData = {}) => {
-    const { title, content, author } = blogData
+    let { title, content, author } = blogData
     // 防xss
     title = xss(title)
     content = xss(content)
@@ -32,7 +32,7 @@ const newBlog = (blogData = {}) => {
 
     const sql = `
         insert into blogs (title,content,createtime,author)
-        values ('${title}','${content}','${createtime}',${author}')
+        values ('${title}','${content}','${createtime}','${author}')
     `
     return exec(sql).then(insertData => {
         return {
