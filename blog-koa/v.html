@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{price}}</p>
+        <child v-model="price"></child>
+    </div>
+    <script>
+        Vue.component('child', {
+            template: '<input :value2="value1" @input="updateVal($event.target.value)" type="text"/>'
+            , props: ['value1'],
+            model: {
+                prop: 'value2',
+                event: 'updateVal'
+            },
+            methods: {
+                updateVal: function (v) {
+                    this.$emit('updateVal', v)
+                }
+            }
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                price: ""
+            }
+        })
+    </script>
+</body>
+
+</html>
